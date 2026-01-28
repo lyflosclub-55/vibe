@@ -1,0 +1,84 @@
+<section class="story-section" id="about">
+    <div class="story-container">
+        <div class="collections-preview">
+            <div class="collection-card dark">
+                <div class="collection-images">
+                    <img src="{{ 'community_friends_1769635459234.png' | asset_url }}" alt="CANVAS Collection">
+                </div>
+                <div class="collection-overlay">
+                    <span class="collection-category">CANVAS</span>
+                    <button class="collection-btn">
+                        View All Collections
+                        <span class="arrow-icon">→</span>
+                    </button>
+                </div>
+            </div>
+            <div class="collection-card colorful">
+                <div class="collection-images-grid">
+                    <img src="{{ 'product_orange_jacket_1769635443035.png' | asset_url }}" alt="Style 1">
+                    <img src="{{ 'product_cargo_pants_1769635504756.png' | asset_url }}" alt="Style 2">
+                    <div class="energy-label">
+                        <span class="big-text">ENERGY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-content">
+            <div class="story-image-float">
+                <img src="{{ 'hero_model_1769635407835.png' | asset_url }}" alt="VIBE Story">
+            </div>
+
+            <div class="story-text">
+                <h2 class="script-heading">Our Story</h2>
+                <p class="story-description">
+                    VIBE started as a passion project — a rebellion against mass trends and an embrace of raw,
+                    unapologetic style. We design for those who own their vibe and live it loud.
+                </p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-icon">✧</span>
+                        <span class="timeline-year">2022 - The Spark</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-icon">⚡</span>
+                        <span class="timeline-year">2023 - The First Drop</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-icon">❂</span>
+                        <span class="timeline-year">2024 - The Culture Collab</span>
+                    </div>
+                    <div class="timeline-item active">
+                        <span class="timeline-icon">◆</span>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2025 - Going Global</span>
+                            <p>Our official site went live. Now, we're taking VIBE worldwide — one bold fit at a
+                                time. The movement has just begun.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-illustration">
+                    <img src="{{ 'story_illustration_1769635475425.png' | asset_url }}" alt="VIBE Community">
+                    <button class="read-more-btn">
+                        Read More
+                        <span class="arrow-circle small">→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Story",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Story"
+    }
+  ]
+}
+{% endschema %}

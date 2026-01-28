@@ -1,0 +1,141 @@
+<section class="community-section" id="collections">
+    <div class="community-container">
+        <div class="section-label-vertical">
+            <h2 class="vertical-text coral">Community Hub</h2>
+            <p class="vertical-subtitle">Join the tribe, Express your vibe</p>
+        </div>
+
+        <div class="community-content">
+            <div class="community-left">
+                <p class="community-intro">Where fashion meets connection. Exclusive drops, style battles, and real
+                    connections — all in one place.</p>
+
+                <div class="challenge-card">
+                    <span class="challenge-badge">🔥 Upcoming Challenge</span>
+                    <div class="challenge-image">
+                        <img src="{{ 'community_friends_1769635459234.png' | asset_url }}" alt="Style Challenge">
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <img src="{{ 'community_member_1769635541984.png' | asset_url }}" alt="Elena Jackson" class="member-avatar">
+                    <div class="member-info">
+                        <h4>Elena Jackson</h4>
+                        <span class="member-role">OG Member</span>
+                        <p class="member-quote">"Wearing VIBE makes me feel like I own the streets. #VybeTribe"</p>
+                    </div>
+                </div>
+
+                <div class="inner-circle-card">
+                    <div class="inner-circle-image">
+                        <img src="{{ 'community_member_1769635541984.png' | asset_url }}" alt="Inner Circle">
+                    </div>
+                    <div class="inner-circle-content">
+                        <span class="ic-badge">👑 Be Part of the Inner Circle</span>
+                        <p>Get exclusive drops, member-only deals & fresh VIBE content — straight to your inbox.</p>
+                        <div class="email-input-group">
+                            <input type="email" placeholder="Enter your email">
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span>I want to be a VIBE tester</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>I want early access to limited collections</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="community-center">
+                <div class="style-challenge-card">
+                    <h3>Style Remix Challenge</h3>
+                    <p>Show off your unique vibe by mixing and matching your favorite pieces from our latest
+                        collection.</p>
+                    <div class="challenge-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <div>
+                                <span class="detail-label">Deadline</span>
+                                <span class="detail-value">July 16</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🎁</span>
+                            <div>
+                                <span class="detail-label">Rewards</span>
+                                <span class="detail-value">Exclusive discount code</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="join-challenge-btn">Join challenge</button>
+                </div>
+
+                <div class="main-community-image">
+                    <img src="{{ 'community_member_1769635541984.png' | asset_url }}" alt="Community Member">
+                    <button class="join-tribe-btn">
+                        <span class="tribe-icon">❖</span>
+                        Join The Vybe Tribe
+                    </button>
+                </div>
+
+                <div class="newsletter-signup">
+                    <button class="newsletter-btn">Join Newsletter</button>
+                    <p class="newsletter-note">No spam. Just premium finds.</p>
+                </div>
+
+                <p class="community-cta">Whether you're here to get inspired or to inspire others, the tribe is
+                    waiting.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Limited Edition Side -->
+    <div class="limited-edition-side">
+        <div class="section-label-vertical right">
+            <h2 class="vertical-text black">Limited Edition</h2>
+            <p class="vertical-subtitle">Once it's gone, it's gone.</p>
+        </div>
+
+        <div class="limited-products">
+            <div class="limited-product-card">
+                <img src="{{ 'product_blue_jacket_1769635523045.png' | asset_url }}" alt="Limited Edition">
+            </div>
+            <div class="limited-product-card">
+                <img src="{{ 'product_tee_1769635422654.png' | asset_url }}" alt="Limited Edition">
+            </div>
+            <div class="limited-product-card">
+                <img src="{{ 'product_orange_jacket_1769635443035.png' | asset_url }}" alt="Limited Edition">
+            </div>
+        </div>
+
+        <div class="countdown-timer">
+            <span class="countdown-icon">⏰</span>
+            <span class="countdown-label">New drop in</span>
+            <div class="countdown-boxes">
+                <div class="countdown-box">
+                    <span class="countdown-value" id="days">02d</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-value" id="hours">13h</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-value" id="minutes">22m</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Community",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Community"
+    }
+  ]
+}
+{% endschema %}
