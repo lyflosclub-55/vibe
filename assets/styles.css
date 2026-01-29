@@ -2126,17 +2126,69 @@ section {
 
 /* ===== RESPONSIVE 3D ADJUSTMENTS & LAYOUT ===== */
 
+/* ===== RESPONSIVE 3D ADJUSTMENTS & LAYOUT ===== */
+
 @media (max-width: 900px) {
     .nav-links {
         display: none;
     }
 
+    /* Mobile Header Layout: Logo Left, Actions + Hamburger Right */
+    .nav {
+        justify-content: space-between;
+    }
+
+    .logo {
+        order: 1;
+        flex-grow: 1;
+        /* Pushes everything else to right */
+    }
+
+    .nav-actions {
+        order: 2;
+        margin-right: var(--space-sm);
+    }
+
     .hamburger {
+        order: 3;
         display: flex;
+        width: 44px;
+        /* Larger touch target */
+        height: 44px;
+        padding: 12px 8px;
+        /* Internal spacing */
+    }
+
+    /* Compact Cart Button on Mobile */
+    .cart-btn span {
+        display: none;
+        /* Hide text "X items" */
+    }
+
+    .cart-btn {
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        position: relative;
+    }
+
+    /* Cart badge for count */
+    .cart-btn::after {
+        content: attr(data-count);
+        /* Needs JS or Liquid attribute update, fallback to dot */
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        width: 8px;
+        height: 8px;
+        background: var(--coral-dark);
+        border-radius: 50%;
     }
 
     .header {
-        padding: var(--space-md) var(--space-lg);
+        padding: var(--space-sm) var(--space-md);
+        /* Slimmer header */
     }
 
     .hero-card-content {
