@@ -1,94 +1,67 @@
 <section class="shop-section" id="shop">
     <div class="section-header-row">
-        <h2 class="section-title-script">Shop the Vibe</h2>
+        <h2 class="section-title-script">{{ section.settings.title }}</h2>
         <div class="collection-tabs">
-            <span class="collection-label large">Vibrant</span>
+            <span class="collection-label large">{{ section.settings.subtitle }}</span>
         </div>
     </div>
 
     <div class="products-grid">
-        <div class="product-card">
-            <div class="product-image">
-                <img src="{{ 'product_cargo_pants_1769635504756.png' | asset_url }}" alt="Graffiti Canvas Cargo Pants">
-                <span class="product-badge yellow">Only X Left</span>
-            </div>
-            <div class="product-info">
-                <h4>Graffiti Canvas Cargo Pants</h4>
-                <div class="product-meta">
-                    <span class="rating">★ 3.9</span>
-                    <span class="price">$95</span>
+        {% assign collection = collections[section.settings.collection] %}
+        
+        {% if collection != blank %}
+            {% for product in collection.products limit: section.settings.products_to_show %}
+                {% render 'product-card', product: product %}
+            {% endfor %}
+        {% else %}
+            {% for i in (1..4) %}
+                <div class="product-card">
+                    <div class="product-image">
+                        {{ 'product-' | append: i | placeholder_svg_tag }}
+                    </div>
+                    <div class="product-info">
+                        <h4>Example Product {{ i }}</h4>
+                        <div class="product-meta">
+                            <span class="price">$99.00</span>
+                        </div>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <img src="{{ 'product_blue_jacket_1769635523045.png' | asset_url }}" alt="Heritage Wave Hat">
-                <span class="product-badge pink">Almost sold out</span>
-            </div>
-            <div class="product-info">
-                <h4>Heritage Wave Hat</h4>
-                <div class="product-meta">
-                    <span class="rating">★ 4.8</span>
-                    <span class="price">$38</span>
-                </div>
-                <button class="add-to-cart-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <img src="{{ 'product_tee_1769635422654.png' | asset_url }}" alt="Vivid Blueprint Shirt">
-                <span class="product-badge coral">Final Drop</span>
-            </div>
-            <div class="product-info">
-                <h4>Vivid Blueprint Shirt</h4>
-                <div class="product-meta">
-                    <span class="rating">★ 4.2</span>
-                    <span class="price">$52</span>
-                </div>
-                <button class="add-to-cart-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <img src="{{ 'product_orange_jacket_1769635443035.png' | asset_url }}" alt="Chroma Surge Jacket">
-                <span class="product-badge yellow">Only 50 made</span>
-            </div>
-            <div class="product-info">
-                <h4>Chroma Surge Jacket</h4>
-                <div class="product-meta">
-                    <span class="rating">★ 4.5</span>
-                    <span class="price">$110</span>
-                </div>
-                <button class="add-to-cart-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
+            {% endfor %}
+        {% endif %}
     </div>
 </section>
 
 {% schema %}
 {
   "name": "Featured Collection",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Shop the Vibe"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Vibrant"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 12,
+      "step": 4,
+      "default": 4,
+      "label": "Products to show"
+    }
+  ],
   "presets": [
     {
       "name": "Featured Collection"

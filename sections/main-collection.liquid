@@ -1,0 +1,26 @@
+<section class="shop-section">
+  <div class="section-header-row collection-header">
+    <h1 class="section-title-script">{{ collection.title }}</h1>
+  </div>
+
+  {% paginate collection.products by 12 %}
+    <div class="products-grid">
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    </div>
+
+    {% if paginate.pages > 1 %}
+      <div class="pagination" style="text-align: center; margin-top: 40px; display: flex; gap: 10px; justify-content: center;">
+        {{ paginate | default_pagination }}
+      </div>
+    {% endif %}
+  {% endpaginate %}
+</section>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": []
+}
+{% endschema %}

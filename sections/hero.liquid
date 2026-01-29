@@ -11,79 +11,34 @@
         <div class="hero-card">
             <div class="hero-card-content">
                 <div class="hero-left">
-                    <span class="new-arrivals-badge">New Arrivals</span>
-                    <h1>Where Art Meets<br>your Style</h1>
-                    <p>Step into the future of streetwear today.</p>
-                    <button class="btn-primary new-drops-btn">
-                        New Drops
+                    <span class="new-arrivals-badge">{{ section.settings.badge_text }}</span>
+                    <h1>{{ section.settings.heading }}</h1>
+                    <p>{{ section.settings.subheading }}</p>
+                    <a href="{{ section.settings.button_link }}" class="btn-primary new-drops-btn">
+                        {{ section.settings.button_label }}
                         <span class="arrow-circle">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
                         </span>
-                    </button>
-                    <div class="tribe-rating">
-                        <div class="tribe-avatars">
-                            <img src="{{ 'community_member_1769635541984.png' | asset_url }}" alt="member">
-                            <img src="{{ 'featured_product_1769635555230.png' | asset_url }}" alt="member">
-                            <img src="{{ 'product_orange_jacket_1769635443035.png' | asset_url }}" alt="member">
-                        </div>
-                        <div class="rating-text">
-                            <span class="stars">★</span>
-                            <span>Rated 5 Stars by<br><strong>The Vybe Tribe</strong></span>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="hero-center">
-                    <img src="{{ 'hero_model_1769635407835.png' | asset_url }}" alt="Model wearing VIBE streetwear"
-                        class="hero-model">
+                    {% if section.settings.hero_image != blank %}
+                        <img src="{{ section.settings.hero_image | image_url: width: 800 }}" 
+                             alt="{{ section.settings.hero_image.alt }}"
+                             class="hero-model">
+                    {% else %}
+                        <img src="{{ 'hero_model_1769635407835.png' | asset_url }}" alt="Model" class="hero-model">
+                    {% endif %}
                 </div>
                 <div class="hero-right">
+                    <!-- Feature icons can be blocks in a future iteration -->
                     <div class="feature-icons">
-                        <div class="feature-icon">
-                            <span class="icon-circle coral">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z" />
-                                </svg>
-                            </span>
+                         <div class="feature-icon">
+                            <span class="icon-circle coral">⚡</span>
                             <span class="feature-label">Future<br>Threads</span>
-                        </div>
-                        <div class="feature-icon">
-                            <span class="icon-circle coral">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                            </span>
-                            <span class="feature-label">Unique<br>Designs</span>
-                        </div>
-                        <div class="feature-icon">
-                            <span class="icon-circle coral">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z" />
-                                </svg>
-                            </span>
-                            <span class="feature-label">Limited<br>Drops</span>
-                        </div>
-                    </div>
-                    <div class="featured-product-card">
-                        <span class="featured-label">Featured Product</span>
-                        <div class="featured-image-wrapper">
-                            <img src="{{ 'featured_product_1769635555230.png' | asset_url }}" alt="Urban Vanguard Tee">
-                        </div>
-                        <h4>Urban Vanguard Tee</h4>
-                        <p>Unmatched comfort.</p>
-                        <div class="featured-price">
-                            <button class="add-cart-mini">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                </svg>
-                            </button>
-                            <span class="price">$26.72</span>
                         </div>
                     </div>
                 </div>
@@ -95,7 +50,42 @@
 {% schema %}
 {
   "name": "Hero",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "New Arrivals"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Where Art Meets<br>your Style"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Step into the future of streetwear today."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "New Drops"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    }
+  ],
   "presets": [
     {
       "name": "Hero"

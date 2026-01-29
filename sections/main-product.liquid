@@ -1,0 +1,65 @@
+<section class="shop-section product-page">
+  <div class="product-container">
+    
+    <!-- Product Media -->
+    <div class="product-media hero-card">
+      {% if product.featured_image %}
+        <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" loading="eager">
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag }}
+      {% endif %}
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-details scroll-reveal-3d">
+      <h1 class="product-title">{{ product.title }}</h1>
+      <div class="product-price">
+        {{ product.price | money }}
+        {% if product.compare_at_price > product.price %}
+          <s>{{ product.compare_at_price | money }}</s>
+        {% endif %}
+      </div>
+
+      <div class="product-description">
+        {{ product.description }}
+      </div>
+
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        {% unless product.has_only_default_variant %}
+          <div class="variant-picker">
+            {% for option in product.options_with_values %}
+              <div class="option-group">
+                <label>{{ option.name }}</label>
+                <select name="options[{{ option.name }}]">
+                  {% for value in option.values %}
+                    <option value="{{ value }}" {% if option.selected_value == value %}selected{% endif %}>
+                      {{ value }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+          </div>
+        {% endunless %}
+
+        <button type="submit" class="btn-primary add-to-cart-btn" style="width: 100%; justify-content: center; position: relative; opacity: 1; transform: none;"
+                {% unless product.available %}disabled{% endunless %}>
+          {% if product.available %}
+            Add to VIBE
+          {% else %}
+            Sold Out
+          {% endif %}
+        </button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Information",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+{
+    "sections": {
+        "banner": {
+            "type": "hero",
+            "settings": {
+                "heading": "Collection",
+                "subheading": "Explore the range"
+            }
+        },
+        "product-grid": {
+            "type": "main-collection"
+        }
+    },
+    "order": [
+        "banner",
+        "product-grid"
+    ]
+}
