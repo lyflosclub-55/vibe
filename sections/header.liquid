@@ -5,7 +5,19 @@
                 <li><a href="{{ link.url }}">{{ link.title }}</a></li>
             {% endfor %}
         </ul>
-        <a href="{{ routes.root_url }}" class="logo">{{ shop.name }}</a>
+        <a href="{{ routes.root_url }}" class="logo">
+            {% if section.settings.logo != blank %}
+                <img src="{{ section.settings.logo | image_url: width: 200 }}" 
+                     alt="{{ shop.name }}" 
+                     style="max-width: {{ section.settings.logo_width }}px; height: auto;">
+            {% else %}
+                <img src="{{ 'logo.png' | asset_url }}" 
+                     alt="{{ shop.name }}" 
+                     style="max-width: {{ section.settings.logo_width }}px; height: auto;"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;">{{ shop.name }}</span>
+            {% endif %}
+        </a>
         <div class="nav-actions">
             <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
                 <button type="submit" class="icon-btn search-btn" aria-label="Search">
@@ -37,6 +49,21 @@
 {
   "name": "Header",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "default": 150,
+      "unit": "px",
+      "label": "Logo width"
+    },
     {
       "type": "link_list",
       "id": "menu",

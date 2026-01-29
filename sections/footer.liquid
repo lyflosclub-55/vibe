@@ -1,7 +1,21 @@
 <footer class="footer" id="contact">
     <div class="footer-container">
         <div class="footer-brand">
-            <h3 class="footer-logo">{{ shop.name }}</h3>
+            <a href="{{ routes.root_url }}" class="footer-logo-link">
+                {% if section.settings.logo != blank %}
+                    <img src="{{ section.settings.logo | image_url: width: 200 }}" 
+                         alt="{{ shop.name }}" 
+                         class="footer-logo-image" style="max-width: {{ section.settings.logo_width }}px; height: auto;">
+                {% elsif section.settings.logo == blank %}
+                     <img src="{{ 'logo.png' | asset_url }}" 
+                         alt="{{ shop.name }}" 
+                         class="footer-logo-image" style="max-width: {{ section.settings.logo_width }}px; height: auto;"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                     <h3 class="footer-logo" style="display:none;">{{ shop.name }}</h3>
+                {% else %}
+                    <h3 class="footer-logo">{{ shop.name }}</h3>
+                {% endif %}
+            </a>
             <p class="footer-tagline">Streetwear made for your vibe.</p>
             <div class="social-links">
                 <!-- Social links could also be dynamic settings, simplifying for now -->
@@ -44,6 +58,21 @@
 {
   "name": "Footer",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "default": 120,
+      "unit": "px",
+      "label": "Logo width"
+    },
     {
         "type": "text",
         "id": "menu_title",
