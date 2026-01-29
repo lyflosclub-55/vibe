@@ -1,19 +1,81 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
-      "type": "hero"
+      "type": "hero",
+      "settings": {}
     },
     "featured_collection": {
-      "type": "featured-collection"
+      "type": "featured-collection",
+      "settings": {}
     },
     "story": {
-      "type": "story"
+      "type": "story",
+      "settings": {}
     },
     "community": {
-      "type": "community"
+      "type": "community",
+      "settings": {}
     },
     "canvas_banner": {
-      "type": "canvas-banner"
+      "type": "canvas-banner",
+      "settings": {}
+    },
+    "176964621158530d07": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c44e3e4_DBybmN": {
+          "type": "ai_gen_block_c44e3e4",
+          "settings": {
+            "desktop_width_percent": 80,
+            "section_padding": 40,
+            "item_spacing": 60,
+            "line_inactive_color": "#e0e0e0",
+            "line_active_color": "#000f9f",
+            "dot_size": 20,
+            "dot_inactive_color": "#e0e0e0",
+            "dot_active_color": "#000f9f",
+            "dot_border_color": "#ffffff",
+            "card_background_color": "#ffffff",
+            "card_padding": 25,
+            "card_border_radius": 8,
+            "date_color": "#000f9f",
+            "date_font_size": 14,
+            "title_color": "#000000",
+            "title_font_size": 22,
+            "description_color": "#666666",
+            "description_font_size": 16,
+            "item_1_date": "January 2024",
+            "item_1_title": "Company founded",
+            "item_1_description": "<p>Our journey began with a simple idea and a passion for innovation.</p>",
+            "item_2_date": "March 2024",
+            "item_2_title": "First product launch",
+            "item_2_description": "<p>We launched our flagship product to an enthusiastic market response.</p>",
+            "item_3_date": "June 2024",
+            "item_3_title": "Reached 10,000 customers",
+            "item_3_description": "<p>A major milestone as we welcomed our 10,000th customer.</p>",
+            "item_4_date": "September 2024",
+            "item_4_title": "Expanded globally",
+            "item_4_description": "<p>We opened offices in three new countries to serve our growing customer base.</p>",
+            "item_5_date": "December 2024",
+            "item_5_title": "Award winning year",
+            "item_5_description": "<p>Recognized as the industry's most innovative company of the year.</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c44e3e4_DBybmN"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -21,6 +83,7 @@
     "featured_collection",
     "story",
     "community",
-    "canvas_banner"
+    "canvas_banner",
+    "176964621158530d07"
   ]
 }
