@@ -8,7 +8,7 @@
       <form action="{{ routes.cart_url }}" method="post" novalidate>
         <div class="cart-items">
           {% for item in cart.items %}
-            <div class="cart-item hero-card" style="padding: 20px; background: white;"> <!-- Added hero-card for tilt effect -->
+            <div class="cart-item hero-card"> <!-- Added hero-card for tilt effect -->
               <div class="cart-item-image">
                 {% if item.image %}
                   <img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}">
@@ -17,9 +17,9 @@
               <div class="cart-item-details">
                 <h4>{{ item.product.title }}</h4>
                 {% unless item.product.has_only_default_variant %}
-                  <p style="color: var(--gray-600); font-size: 0.9rem;">{{ item.variant.title }}</p>
+                  <p class="cart-variant">{{ item.variant.title }}</p>
                 {% endunless %}
-                <p style="color: var(--coral); font-weight: bold;">{{ item.final_price | money }}</p>
+                <p class="cart-price">{{ item.final_price | money }}</p>
                 
                 <div class="cart-qty">
                   <input type="number" name="updates[]" value="{{ item.quantity }}" min="0">
@@ -40,7 +40,7 @@
           </div>
           
           <div class="cart-actions">
-            <button type="submit" name="update" class="collection-btn" style="background: var(--gray-600); color: white;">Update Cart</button>
+            <button type="submit" name="update" class="collection-btn cart-update-btn">Update Cart</button>
             <button type="submit" name="checkout" class="btn-primary">Checkout</button>
           </div>
         </div>
